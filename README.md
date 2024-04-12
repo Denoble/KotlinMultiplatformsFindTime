@@ -1,45 +1,38 @@
-usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
-           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
-           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
-           <command> [<args>]
+# Kotlin Multiplatform Application
 
-These are common Git commands used in various situations:
+## Overview
 
-start a working area (see also: git help tutorial)
-   clone     Clone a repository into a new directory
-   init      Create an empty Git repository or reinitialize an existing one
+This repository contains a Kotlin Multiplatform (KMP) application that demonstrates the power and flexibility of writing shared code across multiple platforms. With Kotlin Multiplatform, developers can write common business logic once and use it across Android, iOS, and other platforms, reducing code duplication and accelerating development.
 
-work on the current change (see also: git help everyday)
-   add       Add file contents to the index
-   mv        Move or rename a file, a directory, or a symlink
-   restore   Restore working tree files
-   rm        Remove files from the working tree and from the index
+## Features
 
-examine the history and state (see also: git help revisions)
-   bisect    Use binary search to find the commit that introduced a bug
-   diff      Show changes between commits, commit and working tree, etc
-   grep      Print lines matching a pattern
-   log       Show commit logs
-   show      Show various types of objects
-   status    Show the working tree status
+- **Shared Codebase:** The application features a shared codebase written in Kotlin that contains common business logic, data models, and utility functions. This shared code is used across Android and iOS platforms, ensuring consistency and minimizing redundancy.
 
-grow, mark and tweak your common history
-   branch    List, create, or delete branches
-   commit    Record changes to the repository
-   merge     Join two or more development histories together
-   rebase    Reapply commits on top of another base tip
-   reset     Reset current HEAD to the specified state
-   switch    Switch branches
-   tag       Create, list, delete or verify a tag object signed with GPG
+- **Platform-Specific UI:** While the core logic is shared, platform-specific user interfaces are implemented using platform-specific frameworks such as Jetpack Compose for Android and SwiftUI for iOS. This allows for native look and feel on each platform while leveraging shared business logic.
 
-collaborate (see also: git help workflows)
-   fetch     Download objects and refs from another repository
-   pull      Fetch from and integrate with another repository or a local branch
-   push      Update remote refs along with associated objects
+- **Network Communication:** The application demonstrates network communication capabilities by fetching data from a remote API using shared networking code. The same networking logic is used on both Android and iOS platforms, enabling seamless data retrieval and synchronization.
 
-'git help -a' and 'git help -g' list available subcommands and some
-concept guides. See 'git help <command>' or 'git help <concept>'
-to read about a specific subcommand or concept.
-See 'git help git' for an overview of the system.
+- **Unit Testing:** Unit tests are included to ensure the reliability and correctness of the shared codebase. Using Kotlin Multiplatform, unit tests can be written once and run on both Android and iOS platforms, simplifying the testing process and improving code quality.
+
+## Getting Started
+
+To run the application locally, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Open the project in your preferred IDE or text editor.
+3. Build and run the Android application using Android Studio or the command line.
+4. Build and run the iOS application using Xcode or the command line.
+5. Explore the shared codebase and platform-specific implementations to understand how Kotlin Multiplatform works.
+
+## Resources
+
+- [Kotlin Multiplatform Documentation](https://kotlinlang.org/docs/mpp-intro.html): Official documentation from JetBrains on Kotlin Multiplatform development.
+- [Touchlab](https://touchlab.co/): Leading consultancy and training provider for Kotlin Multiplatform development.
+
+## Contributing
+
+Contributions to this project are welcome! If you have ideas for new features, improvements, or bug fixes, please submit a pull request or open an issue to discuss your proposal.
+
+## License
+
+
