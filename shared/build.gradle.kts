@@ -65,8 +65,8 @@ android {
     }
 }
 dependencies {
-    implementation(libs.ui.desktop)
+    //implementation(libs.ui.desktop)
     implementation(libs.ui.util)
-    implementation("androidx.core:core-ktx:+")
+    implementation(libs.androidx.core.ktx)
 
 }

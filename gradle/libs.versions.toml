@@ -1,5 +1,6 @@
 [versions]
 agp = "8.1.1"
+coreKtx = "1.12.0"
 gradle = "7.0.4"
 kotlin = "1.9.20"
 compose = "1.6.5"
@@ -9,6 +10,7 @@ androidx-activityCompose = "1.8.2"
 kotlinGradlePlugin = "1.5.31"
 
 [libraries]
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version = "1.9.23" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
