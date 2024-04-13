@@ -17,6 +17,9 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
 
+
+
+
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
@@ -37,21 +40,20 @@ kotlin {
         commonMain.dependencies {
             //put your multiplatform dependencies here
             implementation(libs.kotlinx.datetime)
-
-
-
+            implementation(libs.napier)
+        }
+        val iosMain by creating {
+            //dependsOn(commonMain)
+            //iosX64Main.dependsOn(this)
+            //iosArm64Main.dependsOn(this)
+            //iosSimulatorArm64Main.dependsOn(this)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
             implementation(kotlin("test-common"))
             implementation(kotlin("test-annotations-common"))
         }
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-        }
+
     }
 }
 
@@ -65,7 +67,6 @@ android {
 dependencies {
     implementation(libs.ui.desktop)
     implementation(libs.ui.util)
-    implementation(libs.napier)
     implementation("androidx.core:core-ktx:+")
 
 }
