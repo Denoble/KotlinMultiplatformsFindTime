@@ -3,7 +3,7 @@ import shared
 
 @main
 struct iOSApp: App {
-    let greeting = Greeting().greet()
+    //let greeting = greet
 	var body: some Scene {
 		WindowGroup {
 			ContentView()
