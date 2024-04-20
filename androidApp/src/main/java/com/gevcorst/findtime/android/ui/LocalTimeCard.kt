@@ -53,50 +53,40 @@ fun LocalTimeCard(city: String, time: String, date: String) {
                     )
                     .padding(8.dp)
             ) {
-                // 2
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
-                    // 3
                     Column(
                         horizontalAlignment = Alignment.Start
 
                     ) {
-                        // 4
                         Spacer(modifier = Modifier.weight(1.0f))
                         Text(
-                            "Your Location", style = typography.h4
+                            "Your Location", style = typography.titleSmall
                         )
                         Spacer(Modifier.height(8.dp))
-                        // 5
                         Text(
-                            city, style = typography.h2
+                            city, style = typography.headlineMedium
                         )
                         Spacer(Modifier.height(8.dp))
                     }
-                    // 6
                     Spacer(modifier = Modifier.weight(1.0f))
-                    // 7
                     Column(
                         horizontalAlignment = Alignment.End
                     ) {
                         Spacer(modifier = Modifier.weight(1.0f))
-                        // 8
                         Text(
-                            time, style = typography.h1
+                            time, style = typography.headlineLarge
                         )
                         Spacer(Modifier.height(8.dp))
-                        // 9
                         Text(
-                            date, style = typography.h3
+                            date, style = typography.headlineMedium
                         )
                         Spacer(Modifier.height(8.dp))
                     }
                 }
             }
-
-
         }
     }
 }

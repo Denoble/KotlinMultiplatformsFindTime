@@ -5,6 +5,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Place
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -48,6 +49,7 @@ val bottomNavigationItems = listOf(
 )
 
 // 1
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 // 2
 fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
