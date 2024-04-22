@@ -80,22 +80,26 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
                 }
             },
             bottomBar = {
-                // TODO: Add bottom bar
                 NavigationBar {
                     bottomNavigationItems.forEachIndexed { i, bottomNavigationItem ->
-                        NavigationBarItem( selected = selectedIndex.value == i,
-                            onClick = {  selectedIndex.value = i },
-                            colors =  NavigationBarItemDefaults.colors(
+                        NavigationBarItem(selected = selectedIndex.value == i,
+                            onClick = { selectedIndex.value = i },
+                            colors = NavigationBarItemDefaults.colors(
                                 unselectedIconColor = Color.Black,
                                 selectedIconColor = Color.White
                             ),
-                            label = {Text(bottomNavigationItem.route,
-                                style = MaterialTheme.typography.titleSmall)
+                            label = {
+                                Text(
+                                    bottomNavigationItem.route,
+                                    style = MaterialTheme.typography.titleSmall
+                                )
                             },
-                            icon = { Icon(
-                                bottomNavigationItem.icon,
-                                contentDescription = bottomNavigationItem.iconContentDescription
-                            ) })
+                            icon = {
+                                Icon(
+                                    bottomNavigationItem.icon,
+                                    contentDescription = bottomNavigationItem.iconContentDescription
+                                )
+                            })
                     }
                 }
 
@@ -103,7 +107,10 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
         ) {
             it.toString()
             // TODO: Replace with Dialog
-            // TODO: Replace with screens
+            when (selectedIndex.value) {
+                0 -> TimeZoneScreen(currentTimezoneStrings)
+                // 1 -> FindMeetingScreen(currentTimezoneStrings)
+            }
         }
     }
 }

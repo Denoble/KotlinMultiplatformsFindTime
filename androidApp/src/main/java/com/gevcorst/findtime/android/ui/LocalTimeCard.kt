@@ -73,11 +73,13 @@ fun LocalTimeCard(city: String, time: String, date: String) {
                     }
                     Spacer(modifier = Modifier.weight(1.0f))
                     Column(
-                        horizontalAlignment = Alignment.End
+                        horizontalAlignment = Alignment.End,
                     ) {
                         Spacer(modifier = Modifier.weight(1.0f))
+                        Spacer(Modifier.height(8.dp))
                         Text(
-                            time, style = typography.headlineLarge
+                            time, style = typography.bodyMedium,
+
                         )
                         Spacer(Modifier.height(8.dp))
                         Text(
