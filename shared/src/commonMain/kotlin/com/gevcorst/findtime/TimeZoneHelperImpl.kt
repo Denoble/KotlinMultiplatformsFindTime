@@ -11,10 +11,15 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
-class TimeZoneHelperImp : TimeZoneHelper {
+class TimeZoneHelperImpl : TimeZoneHelper {
     private val currentMoment: Instant = Clock.System.now()
     override fun getTimeZoneStrings(): List<String> {
-        TODO("Not yet implemented")
+        val list = mutableListOf<String>()
+        val currentMoment: Instant = Clock.System.now()
+        val dateTime: LocalDateTime = currentMoment.toLocalDateTime(TimeZone.currentSystemDefault())
+        val formatedDateTime = formatDateTime(dateTime)
+        list.add(formatedDateTime)
+        return list
     }
 
     override fun currentTime(): String {
@@ -51,9 +56,9 @@ class TimeZoneHelperImp : TimeZoneHelper {
         val timezone = TimeZone.of(timezoneId)
         val dateTime: LocalDateTime = currentMoment.toLocalDateTime(timezone)
 
-        return dateTime.dayOfWeek.name.lowercase().replaceFirstChar { it.uppercase() } +
-                dateTime.month.name.lowercase().replaceFirstChar { it.uppercase() } +
-                " ${dateTime.date.dayOfMonth} "
+        return dateTime.dayOfWeek.name.lowercase()
+            .replaceFirstChar { it.uppercase() } + dateTime.month.name.lowercase()
+            .replaceFirstChar { it.uppercase() } + " ${dateTime.date.dayOfMonth} "
     }
 
     override fun search(startHour: Int, endHour: Int, timezoneStrings: List<String>): List<Int> {
@@ -91,10 +96,7 @@ class TimeZoneHelperImp : TimeZoneHelper {
     }
 
     private fun isValid(
-        timeRange: IntRange,
-        hour: Int,
-        currentTimeZone: TimeZone,
-        otherTimeZone: TimeZone
+        timeRange: IntRange, hour: Int, currentTimeZone: TimeZone, otherTimeZone: TimeZone
     ): Boolean {
         if (hour !in timeRange) {
             return false

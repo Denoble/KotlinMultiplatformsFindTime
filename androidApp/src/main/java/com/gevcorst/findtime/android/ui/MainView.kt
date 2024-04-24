@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.NavigationBarItem
@@ -38,7 +39,7 @@ data class BottomNavigationItem(
 val bottomNavigationItems = listOf(
     BottomNavigationItem(
         Screen.TimeZonesScreen.title,
-        Icons.Filled.Info,
+        Icons.Filled.Language,
         "Timezones"
     ),
     BottomNavigationItem(
@@ -106,7 +107,21 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
             }
         ) {
             it.toString()
-            // TODO: Replace with Dialog
+            if (showAddDialog.value) {
+                AddTimeZoneDialog(
+                    onAdd = { newTimezones ->
+                        showAddDialog.value = false
+                        for (zone in newTimezones) {
+                            if (!currentTimezoneStrings.contains(zone)) {
+                                currentTimezoneStrings.add(zone)
+                            }
+                        }
+                    },
+                    onDismiss = {
+                        showAddDialog.value = false
+                    },
+                )
+            }
             when (selectedIndex.value) {
                 0 -> TimeZoneScreen(currentTimezoneStrings)
                 // 1 -> FindMeetingScreen(currentTimezoneStrings)
