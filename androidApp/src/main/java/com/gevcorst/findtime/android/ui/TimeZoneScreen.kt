@@ -39,7 +39,8 @@ fun TimeZoneScreen(
     val timezoneHelper: TimeZoneHelper = TimeZoneHelperImpl()
     val listState = rememberLazyListState()
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
     ) {
         var time by remember { mutableStateOf(timezoneHelper.currentTime()) }
         LaunchedEffect(Unit) {
@@ -50,20 +51,20 @@ fun TimeZoneScreen(
         }
         LocalTimeCard(
             city = timezoneHelper.currentTimeZone(),
-            time = time,
-            date = timezoneHelper.getDate(timezoneHelper.currentTimeZone())
+            time = time, date = timezoneHelper.getDate(timezoneHelper.currentTimeZone())
         )
         Spacer(modifier = Modifier.size(16.dp))
+
         LazyColumn(
             state = listState,
         ) {
             items(currentTimezoneStrings.size,
                 key = { timezone ->
                     timezone
-                }) { timezoneString ->
+                }) { index ->
+                val timezoneString = currentTimezoneStrings[index]
                 AnimatedSwipeDismiss(
                     item = timezoneString,
-                    // 5
                     background = { _ ->
                         Box(
                             modifier = Modifier
@@ -87,15 +88,15 @@ fun TimeZoneScreen(
                     },
                     content = {
                         TimeCard(
-                            timezone = timezoneString.toString(),
-                            hours = timezoneHelper.hoursFromTimeZone(timezoneString.toString()),
-                            time = timezoneHelper.getTime(timezoneString.toString()),
-                            date = timezoneHelper.getDate(timezoneString.toString())
+                            timezone = timezoneString,
+                            hours = timezoneHelper.hoursFromTimeZone(timezoneString),
+                            time = timezoneHelper.getTime(timezoneString),
+                            date = timezoneHelper.getDate(timezoneString)
                         )
                     },
                     onDismiss = { zone ->
-                        if (currentTimezoneStrings.contains(zone.toString())) {
-                            currentTimezoneStrings.removeAt(zone)
+                        if (currentTimezoneStrings.contains(zone)) {
+                            currentTimezoneStrings.remove(zone)
                         }
                     }
                 )

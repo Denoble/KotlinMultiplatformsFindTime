@@ -12,21 +12,13 @@ import kotlin.math.max
 import kotlin.math.min
 
 class TimeZoneHelperImpl : TimeZoneHelper {
-    private val currentMoment: Instant = Clock.System.now()
     override fun getTimeZoneStrings(): List<String> {
-        val list = mutableListOf<String>()
-        val currentMoment: Instant = Clock.System.now()
-        val dateTime: LocalDateTime = currentMoment.toLocalDateTime(TimeZone.currentSystemDefault())
-        val formatedDateTime = formatDateTime(dateTime)
-        list.add(formatedDateTime)
-        return list
+        return TimeZone.availableZoneIds.sorted()
     }
 
     override fun currentTime(): String {
-        //val currentMoment: Instant = Clock.System.now()
-        val dateTime: LocalDateTime = currentMoment.toLocalDateTime(
-            TimeZone.currentSystemDefault()
-        )
+        val currentMoment: Instant = Clock.System.now()
+        val dateTime: LocalDateTime = currentMoment.toLocalDateTime(TimeZone.currentSystemDefault())
         return formatDateTime(dateTime)
     }
 
@@ -47,18 +39,19 @@ class TimeZoneHelperImpl : TimeZoneHelper {
 
     override fun getTime(timezoneId: String): String {
         val timezone = TimeZone.of(timezoneId)
+        val currentMoment: Instant = Clock.System.now()
         val dateTime: LocalDateTime = currentMoment.toLocalDateTime(timezone)
         return formatDateTime(dateTime)
-
     }
 
     override fun getDate(timezoneId: String): String {
         val timezone = TimeZone.of(timezoneId)
+        val currentMoment: Instant = Clock.System.now()
         val dateTime: LocalDateTime = currentMoment.toLocalDateTime(timezone)
-
-        return dateTime.dayOfWeek.name.lowercase()
-            .replaceFirstChar { it.uppercase() } + dateTime.month.name.lowercase()
-            .replaceFirstChar { it.uppercase() } + " ${dateTime.date.dayOfMonth} "
+        return "${dateTime.dayOfWeek.name.lowercase().replaceFirstChar { it.uppercase() }}, " +
+                "${
+                    dateTime.month.name.lowercase().replaceFirstChar { it.uppercase() }
+                } ${dateTime.date.dayOfMonth}"
     }
 
     override fun search(startHour: Int, endHour: Int, timezoneStrings: List<String>): List<Int> {
@@ -92,11 +85,13 @@ class TimeZoneHelperImpl : TimeZoneHelper {
             }
         }
         return goodHours
-
     }
 
     private fun isValid(
-        timeRange: IntRange, hour: Int, currentTimeZone: TimeZone, otherTimeZone: TimeZone
+        timeRange: IntRange,
+        hour: Int,
+        currentTimeZone: TimeZone,
+        otherTimeZone: TimeZone
     ): Boolean {
         if (hour !in timeRange) {
             return false
@@ -116,22 +111,22 @@ class TimeZoneHelperImpl : TimeZoneHelper {
         val convertedTime = localInstant.toLocalDateTime(otherTimeZone)
         Napier.d("Hour $hour in Time Range ${otherTimeZone.id} is ${convertedTime.hour}")
         return convertedTime.hour in timeRange
-
     }
-}
 
-fun formatDateTime(dateTime: LocalDateTime): String {
-    val stringBuilder = StringBuilder()
-    val minute = dateTime.minute
-    var hour = dateTime.hour % 12
-    if (hour == 0) hour = 12
-    val amPm = if (dateTime.hour < 12) " am" else " pm"
-    stringBuilder.append(hour.toString())
-    stringBuilder.append(":")
-    if (minute < 10) {
-        stringBuilder.append('0')
+    fun formatDateTime(dateTime: LocalDateTime): String {
+        val stringBuilder = StringBuilder()
+        val minute = dateTime.minute
+        var hour = dateTime.hour % 12
+        if (hour == 0) hour = 12
+        val amPm = if (dateTime.hour < 12) " am" else " pm"
+        stringBuilder.append(hour.toString())
+        stringBuilder.append(":")
+        if (minute < 10) {
+            stringBuilder.append('0')
+        }
+        stringBuilder.append(minute.toString())
+        stringBuilder.append(amPm)
+        return stringBuilder.toString()
     }
-    stringBuilder.append(minute.toString())
-    stringBuilder.append(amPm)
-    return stringBuilder.toString()
+
 }

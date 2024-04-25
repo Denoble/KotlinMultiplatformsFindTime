@@ -124,7 +124,7 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
             }
             when (selectedIndex.value) {
                 0 -> TimeZoneScreen(currentTimezoneStrings)
-                // 1 -> FindMeetingScreen(currentTimezoneStrings)
+                 //1 -> FindMeetingScreen(currentTimezoneStrings)
             }
         }
     }
