@@ -26,7 +26,7 @@ struct TimeCard: View {
           .foregroundColor(Color.white)
       }
       .padding(.leading, 8).padding(.bottom, 16)
-      Spacer()
+        Spacer(minLength: 16).frame(height: 16)
       VStack(alignment: .trailing) {
         Text(time)
           .font(.system(size: 34.0))
@@ -58,6 +58,7 @@ struct TimeCard: View {
 struct TimeCard_Previews: PreviewProvider {
   static var previews: some View {
     TimeCard(timezone: "America/Los_Angeles",
-             time: "1:39 pm", date: "Saturday, October 16")
+             time: "1:39 pm",
+             date: "Saturday, October 16")
   }
 }
