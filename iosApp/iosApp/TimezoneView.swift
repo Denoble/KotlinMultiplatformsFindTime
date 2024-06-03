@@ -18,7 +18,7 @@ struct TimezoneView: View {
         NavigationView {
           VStack {
             TimeCard(timezone: timezoneHelper.currentTimeZone(),
-                     time: DateFormatter.short.string(from: currentDate),
+                     time: DateFormatter .short.string(from: currentDate),
                      date: DateFormatter.long.string(from: currentDate))
             Spacer()
               List {
@@ -50,7 +50,11 @@ struct TimezoneView: View {
                 }
               } // ToolbarItem
             } // toolbar
-        } // NavigationView
+        }
+        .fullScreenCover(isPresented: $showTimezoneDialog){
+            TimezoneDialog()
+                .environmentObject(timezoneItems)
+        }
     }
     func deleteItems(at offsets: IndexSet) {
         let timezoneArray = Array(timezoneItems.selectedTimezones)

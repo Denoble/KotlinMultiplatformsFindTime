@@ -15,21 +15,21 @@ struct TimeCard: View {
   var date: String
   var body: some View {
     HStack {
-      VStack(alignment: .leading) {
+        VStack(alignment: .leading) {
         Text("Your Location")
           .font(Font.caption)
           .foregroundColor(Color.white)
         Spacer().frame(height:8.0)
         Text(timezone)
           .lineLimit(1)
-          .font(.system(size: 16.0))
+          .font(.system(size: 12.0))
           .foregroundColor(Color.white)
       }
-      .padding(.leading, 8).padding(.bottom, 16)
+        .padding( EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 0))
         Spacer(minLength: 16).frame(height: 16)
       VStack(alignment: .trailing) {
         Text(time)
-          .font(.system(size: 34.0))
+          .font(.system(size: 12.0))
           .foregroundColor(Color.white)
         Spacer().frame(height:8.0)
         Text(date)

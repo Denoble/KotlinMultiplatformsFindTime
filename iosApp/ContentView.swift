@@ -18,14 +18,13 @@ struct ContentView: View {
                 .tabItem {
                   Label("Time Zones", systemImage: "network")
                 }
-              // 4
-        //      FindMeeting()
-        //        .tabItem {
-        //          Label("Find Meeting", systemImage: "clock")
-        //        }
+            
+              FindMeeting()
+                .tabItem {
+                 Label("Find Meeting", systemImage: "clock")
+               }
             }
             .accentColor(Color.white)
-            // 5
             .environmentObject(timezoneItems)
           }
     }

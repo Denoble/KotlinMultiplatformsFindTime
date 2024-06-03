@@ -22,6 +22,8 @@
 		2F4714F32BDD7DF8000685FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4714F22BDD7DF8000685FA /* ContentView.swift */; };
 		2F4714F52BDDAA3A000685FA /* TimezoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4714F42BDDAA3A000685FA /* TimezoneView.swift */; };
 		2F5DBD622BDC9806005EC08F /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5DBD612BDC9806005EC08F /* CardModifier.swift */; };
+		2FA80EF82C0D583300C15477 /* HourSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA80EF72C0D583300C15477 /* HourSheet.swift */; };
+		2FA80EFA2C0D5A6000C15477 /* FindMeeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA80EF92C0D5A6000C15477 /* FindMeeting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		2F4714F22BDD7DF8000685FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2F4714F42BDDAA3A000685FA /* TimezoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimezoneView.swift; sourceTree = "<group>"; };
 		2F5DBD612BDC9806005EC08F /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
+		2FA80EF72C0D583300C15477 /* HourSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourSheet.swift; sourceTree = "<group>"; };
+		2FA80EF92C0D5A6000C15477 /* FindMeeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMeeting.swift; sourceTree = "<group>"; };
 		6FA40DBC73915F207C19C59C /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
+				2FA80EF72C0D583300C15477 /* HourSheet.swift */,
+				2FA80EF92C0D5A6000C15477 /* FindMeeting.swift */,
 				2F4714F22BDD7DF8000685FA /* ContentView.swift */,
 				2F0B7FF42BDD55FD00D81F21 /* Utils.swift */,
 				2F0B7FF22BDD55B600D81F21 /* TimezoneItems.swift */,
@@ -227,9 +233,11 @@
 				2F0B7FEB2BDD54A500D81F21 /* PresentationSettings.swift in Sources */,
 				2F0B7FED2BDD54E800D81F21 /* Searchbar.swift in Sources */,
 				2F4714F52BDDAA3A000685FA /* TimezoneView.swift in Sources */,
+				2FA80EF82C0D583300C15477 /* HourSheet.swift in Sources */,
 				2F0B7FF32BDD55B600D81F21 /* TimezoneItems.swift in Sources */,
 				2F5DBD622BDC9806005EC08F /* CardModifier.swift in Sources */,
 				2F0B7FE92BDD546500D81F21 /* NumberTimeCard.swift in Sources */,
+				2FA80EFA2C0D5A6000C15477 /* FindMeeting.swift in Sources */,
 				2F0B7FF52BDD55FD00D81F21 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
